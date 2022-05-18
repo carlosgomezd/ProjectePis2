@@ -7,67 +7,130 @@
     tools:context=".PerfilActivity">
 
 
+    <include
+        android:id="@+id/app_main_toolbar"
+        layout="@layout/toolbar_principal" />
 
-    <EditText
-        android:id="@+id/ciudad_perfil"
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+android:layout_below="@+id/app_main_toolbar"
+        android:layout_above="@+id/bottom_navigation">
+
+        <LinearLayout
+            android:id="@+id/llTop"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="250dp"
+
+            >
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:src="@android:drawable/stat_sys_warning"/>
+
+            <TextView
+                android:id="@+id/tvNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"></TextView>
+
+            <TextView
+                android:id="@+id/tvDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Direccion"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"></TextView>
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llTop"
+
+            >
+
+
+            <TextView
+                android:id="@+id/tvCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="test@gmail.com"
+                android:layout_marginTop="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:paddingLeft="8dp"></TextView>
+
+            <TextView
+                android:id="@+id/tvTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+34 555 666 78"
+                android:layout_marginTop="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:paddingLeft="8dp"></TextView>
+
+            <TextView
+                android:id="@+id/tvDatosP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="dhla informacion mas mas "
+                android:layout_marginTop="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:paddingLeft="8dp"></TextView>
+
+
+            <Button
+                android:id="@+id/btEditarP"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Editar Perfil"
+                android:layout_gravity="center"
+/>
+
+
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/recibir_mensaje"
-        android:hint="Mi Ciudad"
-        android:minHeight="48dp"
-        android:padding="8dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@color/black"
+        app:itemIconTint="@android:color/white"
+        app:itemTextColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu" />
 
-    <EditText
-        android:id="@+id/edad_perfil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ciudad_perfil"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/recibir_mensaje"
-        android:hint="Edad"
-        android:minHeight="48dp"
-        android:padding="8dp" />
 
-    <EditText
-        android:id="@+id/género_perfil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edad_perfil"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/recibir_mensaje"
-        android:hint="Género"
-        android:minHeight="48dp"
-        android:padding="8dp" />
 
-    <EditText
-        android:id="@+id/estado_perfil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/género_perfil"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/recibir_mensaje"
-        android:hint="Mi Estado"
-        android:minHeight="48dp"
-        android:padding="8dp" />
 
-<Button
-    android:id="@+id/boton_perfil"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/estado_perfil"
-    android:layout_margin="20dp"
-    android:text="Actualizar información"
-    android:background="@drawable/recibir_mensaje"
-    android:textColor="#ffffff"/>
+
+
 
 
 

@@ -48,8 +48,8 @@ public class CrearEvento extends AppCompatActivity {
                     startActivity(intent3);
                     break;
                 case R.id.perfil:
-                    //Intent intent = new Intent(InicioChatActivity.this, CalendarioActivity.class);
-                    //startActivity(intent);
+                    Intent intent4 = new Intent(CrearEvento.this, PerfilActivity.class);
+                    startActivity(intent4);
                     break;
             }
             return true;

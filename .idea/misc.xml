@@ -62,13 +62,21 @@
         <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiS/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1715" />
         <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiS/app/src/main/res/mipmap-anydpi-v26/ic_launcher_logo.xml" value="0.1715" />
         <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiS/app/src/main/res/mipmap-anydpi-v26/ic_launcher_logo_round.xml" value="0.1715" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.2151268115942029" />
+        <entry key="app/src/main/res/layout/activity_crear_evento.xml" value="0.16691995947315097" />
+        <entry key="app/src/main/res/layout/activity_evento_destacado.xml" value="0.2151268115942029" />
         <entry key="app/src/main/res/layout/activity_grupo_chat.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_inicio.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_perfil.xml" value="0.12771739130434784" />
+        <entry key="app/src/main/res/layout/activity_inicio_chat.xml" value="0.34322916666666664" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_perfil.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_perfil_usuario.xml" value="0.17325227963525835" />
         <entry key="app/src/main/res/layout/activity_registro.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_grupos.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/layout_chat_bar.xml" value="0.2151268115942029" />
         <entry key="app/src/main/res/layout/toolbar_principal.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/user_display_layout.xml" value="0.2151268115942029" />
+        <entry key="app/src/main/res/layout/usuario_mensaje_layout.xml" value="0.2151268115942029" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.26851851851851855" />
       </map>
     </option>

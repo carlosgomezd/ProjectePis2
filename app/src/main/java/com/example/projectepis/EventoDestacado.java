@@ -47,8 +47,8 @@ public class EventoDestacado extends AppCompatActivity {
                     startActivity(intent3);
                     break;
                 case R.id.perfil:
-                    //Intent intent4 = new Intent(EventoDestacado.this, Perfil.class);
-                    //startActivity(intent4);
+                    Intent intent4 = new Intent(EventoDestacado.this, PerfilActivity.class);
+                    startActivity(intent4);
                     break;
             }
             return true;

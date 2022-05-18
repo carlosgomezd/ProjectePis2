@@ -108,8 +108,8 @@ public class Calendario extends AppCompatActivity implements CalendarView.OnDate
                     startActivity(intent3);
                     break;
                 case R.id.perfil:
-                    //Intent intent4 = new Intent(Calendario.this, Perfil.class);
-                    //startActivity(intent4);
+                    Intent intent4 = new Intent(Calendario.this, PerfilActivity.class);
+                    startActivity(intent4);
                     break;
             }
             return true;
