@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.cardview.widget.CardView xmlns:andorid="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        andorid:id="@+id/cv"
+        andorid:layout_width="match_parent"
+        andorid:layout_height="wrap_content"
+        andorid:animateLayoutChanges="true"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            andorid:background="@color/black"
+            andorid:layout_width="match_parent"
+            andorid:layout_height="wrap_content"
+            andorid:orientation="horizontal"
+            andorid:padding="6dp">
+
+            <ImageView
+                andorid:id="@+id/iconImage"
+                andorid:layout_width="100dp"
+                andorid:layout_height="100dp"
+                andorid:layout_alignParentStart="true"
+                andorid:layout_centerVertical="true"
+                andorid:layout_gravity="center"
+                andorid:paddingLeft="14dp"
+                andorid:paddingRight="14dp"
+                andorid:layout_alignParentLeft="true"
+                android:scaleType="fitXY" />
+
+            <LinearLayout
+                andorid:id="@+id/LineraLayout"
+                andorid:layout_width="match_parent"
+                andorid:layout_height="wrap_content"
+                andorid:layout_alignParentTop="true"
+                andorid:layout_marginStart="4dp"
+                andorid:layout_marginTop="2dp"
+                andorid:layout_toEndOf="@+id/iconImage"
+                andorid:orientation="vertical"
+                andorid:layout_marginLeft="4dp"
+                andorid:layout_toRightOf="@+id/iconImage">
+                <TextView
+                    andorid:id="@+id/nom"
+                    andorid:layout_width="match_parent"
+                    andorid:layout_height="wrap_content"
+                    andorid:layout_alignParentStart="true"
+                    andorid:layout_gravity="center"
+                    andorid:gravity="center"
+                    andorid:text="Event"
+                    andorid:textColor="@color/white"
+                    andorid:textSize="24sp"
+                    andorid:textStyle="bold"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>
