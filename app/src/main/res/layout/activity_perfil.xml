@@ -28,6 +28,7 @@ android:layout_below="@+id/app_main_toolbar"
 
             >
             <ImageView
+                android:id="@+id/ivPerfil"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
@@ -38,7 +39,7 @@ android:layout_below="@+id/app_main_toolbar"
                 android:id="@+id/tvNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nombre"
+                android:text="No hay nombre"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"></TextView>
@@ -47,7 +48,7 @@ android:layout_below="@+id/app_main_toolbar"
                 android:id="@+id/tvDireccion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Direccion"
+                android:text="No hay direccion"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"></TextView>
@@ -84,14 +85,15 @@ android:layout_below="@+id/app_main_toolbar"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:paddingLeft="8dp"></TextView>
 
-            <TextView
+            <EditText
                 android:id="@+id/tvDatosP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="dhla informacion mas mas "
                 android:layout_marginTop="8dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:paddingLeft="8dp"></TextView>
+                android:paddingLeft="8dp"
+                ></EditText>
 
 
             <Button
