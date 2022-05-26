@@ -20,7 +20,7 @@
         app:showAsAction="always"/>
     <item
         android:id="@+id/evento_destacado"
-        android:title="Evento Destacado"
+        android:title="Events"
         android:icon="@drawable/calendar_star"
         app:showAsAction="always"/>
     <item

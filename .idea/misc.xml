@@ -65,13 +65,18 @@
         <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiSV2/app/src/main/res/drawable/card_background.xml" value="0.2555" />
         <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiSV2/app/src/main/res/drawable/card_background_selector.xml" value="0.2555" />
         <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiSV2/app/src/main/res/drawable/card_state_pressed.xml" value="0.2555" />
+        <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiSV2/app/src/main/res/layout/activity_crear_evento.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiSV2/app/src/main/res/layout/activity_evento_destacado.xml" value="0.264" />
+        <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiSV2/app/src/main/res/layout/activity_registro.xml" value="0.25" />
         <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiSV2/app/src/main/res/layout/card_back_ground_selector.xml" value="0.25" />
-        <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiSV2/app/src/main/res/layout/card_evento.xml" value="0.25" />
+        <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiSV2/app/src/main/res/layout/card_evento.xml" value="0.1" />
         <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiSV2/app/src/main/res/layout/card_listview.xml" value="0.1" />
         <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiSV2/app/src/main/res/layout/list_item_card.xml" value="0.25" />
         <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiSV2/app/src/main/res/layout/list_view.xml" value="0.25" />
         <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiSV2/app/src/main/res/layout/text_row_item.xml" value="0.25" />
+        <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiSV2/app/src/main/res/layout/toolbar_principal.xml" value="0.12158054711246201" />
+        <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiSV2/app/src/main/res/menu/bottom_menu.xml" value="0.25" />
+        <entry key="..\:/Users/solra/AndroidStudioProjects/ProjectePiSV2/app/src/main/res/menu/menus_opciones.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_grupo_chat.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_inicio.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_perfil.xml" value="0.12771739130434784" />

@@ -15,7 +15,7 @@
         app:cardUseCompatPadding="true">
 
         <RelativeLayout
-            andorid:background="@color/black"
+            andorid:background="@color/blau"
             andorid:layout_width="match_parent"
             andorid:layout_height="wrap_content"
             andorid:orientation="horizontal"
@@ -31,7 +31,8 @@
                 andorid:paddingLeft="14dp"
                 andorid:paddingRight="14dp"
                 andorid:layout_alignParentLeft="true"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                />
 
             <LinearLayout
                 andorid:id="@+id/LineraLayout"
