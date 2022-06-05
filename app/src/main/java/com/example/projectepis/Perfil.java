@@ -2,29 +2,50 @@ package com.example.projectepis;
 
 public class Perfil {
 
-    private String apellido, birthday, email, genero, nombre, password,token,datosP;
+    private String  birthday, email, genero, nombre, password,token,datosP,direccion,telefono,imagen;
 
     public Perfil() {
     }
 
-    public Perfil(String apellido, String birthday, String email, String genero, String nombre, String password, String token, String datosP) {
-        this.apellido = apellido;
+    public Perfil( String birthday, String email, String genero, String nombre, String password, String token, String datosP, String direccion, String telefono, String imagen) {
+
         this.birthday = birthday;
         this.email = email;
         this.genero = genero;
         this.nombre = nombre;
         this.password = password;
         this.token = token;
-        this.datosP=datosP;
+        this.datosP = datosP;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.imagen = imagen;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getImagen() {
+        return imagen;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+
 
     public String getBirthday() {
         return birthday;

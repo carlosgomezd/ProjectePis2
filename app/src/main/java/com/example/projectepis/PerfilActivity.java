@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -15,7 +16,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,6 +29,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class PerfilActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -35,10 +41,10 @@ public class PerfilActivity extends AppCompatActivity {
 
     private Perfil perfil=null;
 
-    private TextView tvNombre;
-    private TextView tvDireccion;
-    private TextView tvCorreo;
-    private TextView tvTelefono;
+    private EditText tvNombre;
+    private EditText tvDireccion;
+    private EditText tvCorreo;
+    private EditText tvTelefono;
     private EditText tvDatosP;
 
     private ImageView ivPerfil;
@@ -74,21 +80,35 @@ public class PerfilActivity extends AppCompatActivity {
 
         refreshPerfil();
 
+
+
         btEditarP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                editPerfil();
+
+                if(btEditarP.isActivated()){
+                    editPerfil();
+                }else{
+                    updatePerfil();
+                }
+
+
             }
         });
     }
 
     public void refreshPerfil(){
 
-       // tvDatosP.setEnabled(false);
+        getSupportActionBar().setTitle("Perfil");
+        btEditarP.setText("Editar Perfil");
 
+        btEditarP.setActivated(true);
 
-
-
+        tvNombre.setEnabled(false);
+        tvDireccion.setEnabled(false);
+        tvCorreo.setEnabled(false);
+        tvTelefono.setEnabled(false);
+        tvDatosP.setEnabled(false);
 
         if(user != null){
             Log.i("info user", user.getDisplayName());
@@ -96,17 +116,23 @@ public class PerfilActivity extends AppCompatActivity {
             UserRef.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                     perfil = dataSnapshot.getValue(Perfil.class);
+                    perfil = dataSnapshot.getValue(Perfil.class);
                     Log.i("Perfil",perfil.toString());
 
                     if(!perfil.getNombre().isEmpty())
-                    tvNombre.setText(perfil.getNombre()+" "+perfil.getApellido());
-
-                    //tvDireccion.setText(perfil.get());
+                    tvNombre.setText(perfil.getNombre());
+                    tvDireccion.setText(perfil.getDireccion());
                     tvCorreo.setText(perfil.getEmail());
-                    //tvTelefono.setText(perfil.getjjkjk));
-                    //tvDatosP.setText(perfil.getNombre());
-                   // ivPerfil.setText(perfil.getNombre());
+                    tvTelefono.setText(perfil.getTelefono());
+                    tvDatosP.setText(perfil.getDatosP());
+                    //ivPerfil.setText(perfil.getNombre());
+
+
+
+                    Glide.with(getApplicationContext() )
+                            .load(perfil.getImagen())
+                            .placeholder(R.drawable.user)
+                            .into(ivPerfil);
                 }
 
                 @Override
@@ -119,18 +145,34 @@ public class PerfilActivity extends AppCompatActivity {
 
         }
 
+
+
     public void editPerfil(){
+
+        getSupportActionBar().setTitle("Editar Perfil");
+        btEditarP.setText("Finalizar");
+
+        btEditarP.setActivated(false);
+
+        tvNombre.setEnabled(true);
+        tvDireccion.setEnabled(true);
+        tvCorreo.setEnabled(true);
+        tvTelefono.setEnabled(true);
         tvDatosP.setEnabled(true);
 
-        btEditarP.setText("Finalizar");
-        getSupportActionBar().setTitle("Editar Perfil");
+    }
 
-
-
-
+    public void updatePerfil(){
         if(perfil!=null){
 
+            perfil.setNombre(tvNombre.getText().toString());
+            perfil.setDireccion(tvDireccion.getText().toString());
+            perfil.setEmail(tvCorreo.getText().toString());
+            perfil.setTelefono(tvTelefono.getText().toString());
             perfil.setDatosP(tvDatosP.getText().toString());
+
+
+
 
             UserRef.child(user.getUid()).setValue(perfil).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
@@ -144,8 +186,29 @@ public class PerfilActivity extends AppCompatActivity {
                 }
             });
         }
+    }
 
 
+    public void loadImageFirebase(){
+
+        /*StorageReference storageRef = FirebaseStorage.getInstance().getReference();
+        StorageReference imagesRef = storageRef.child("images/"+User.uid+".jpg");
+
+        imagesRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(context )
+                        .load(uri.toString())
+                        .placeholder(R.drawable.load)
+                        .into(ivUser);
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle any errors
+            }
+        });*/
 
     }
 
