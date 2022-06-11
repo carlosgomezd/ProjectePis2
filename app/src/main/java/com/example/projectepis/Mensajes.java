@@ -1,6 +1,7 @@
 package com.example.projectepis;
 
-public class Mensajes {
+public class
+Mensajes {
     private String de, mensaje, tipo, para, mensajeID, fecha, hora, nombre, apellido;
 
 
