@@ -2,4 +2,12 @@
     <string name="app_name">ProjectePiS</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- nuevo -->
+    <string name="buscar_galeria">Buscar en Galeria</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="elige_foto">Elige tu foto de perfil</string>
+    <string name="proceso_de_carga">Proceso de carga</string>
+    <string name="subida_exitosa">Subida exitosa</string>
+    <string name="subida_fallida">Subida fallida ...</string>
+    <string name="por_ciento_subido">% Subido ...</string>
 </resources>

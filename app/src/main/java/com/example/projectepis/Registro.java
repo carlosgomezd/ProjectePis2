@@ -156,7 +156,7 @@ public class Registro extends AppCompatActivity {
                             if (task.isSuccessful()){
                                 token = task.getResult();
                                 Map<String , Object> map = new HashMap<>();
-                                map.put("nombre",name );
+                                map.put("nombre",name + " "+apellido);
                                 map.put("apellido",apellido );
                                 map.put("email",email );
                                 map.put("password",password );
