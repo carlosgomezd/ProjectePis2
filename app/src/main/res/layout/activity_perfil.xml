@@ -35,23 +35,23 @@ android:layout_below="@+id/app_main_toolbar"
                 android:layout_marginTop="16dp"
                 android:src="@android:drawable/stat_sys_warning"/>
 
-            <EditText
+            <TextView
                 android:id="@+id/tvNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="No hay nombre"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"></EditText>
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"></TextView>
 
-            <EditText
+            <TextView
                 android:id="@+id/tvDireccion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="No hay direccion"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"></EditText>
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"></TextView>
 
 
 
@@ -67,23 +67,23 @@ android:layout_below="@+id/app_main_toolbar"
             >
 
 
-            <EditText
+            <TextView
                 android:id="@+id/tvCorreo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="test@gmail.com"
                 android:layout_marginTop="8dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:paddingLeft="8dp"></EditText>
+                android:paddingLeft="8dp"></TextView>
 
-            <EditText
+            <TextView
                 android:id="@+id/tvTelefono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="+34 555 666 78"
                 android:layout_marginTop="8dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:paddingLeft="8dp"></EditText>
+                android:paddingLeft="8dp"></TextView>
 
             <EditText
                 android:id="@+id/tvDatosP"
