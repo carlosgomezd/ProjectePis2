@@ -92,7 +92,7 @@ public class CrearEvento extends AppCompatActivity implements View.OnClickListen
         }
     };
 
-
+// as
     @Override
     public void onClick(View view) {
         boolean correcto = true;
