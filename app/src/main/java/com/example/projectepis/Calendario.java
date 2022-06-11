@@ -44,10 +44,10 @@ public class Calendario extends AppCompatActivity implements CalendarView.OnDate
         items[0]="Agregar evento";
         items[1]="Ver Eventos";
         items[2]="Cancelar";
-        final int dia,mes,anio;
+        final int dia,mes,año;
         dia=i;
         mes=i1+1;
-        anio=i2;
+        año=i2;
 
 
         builder.setTitle("Seleccione una tarea")
@@ -57,24 +57,24 @@ public class Calendario extends AppCompatActivity implements CalendarView.OnDate
                         if(i==0){
                             //agregar eventos
 
-                            //Intent intent = new Intent(getApplication(),agregarEventoCalendario.class);
+                            Intent intent = new Intent(getApplication(),CrearEvento.class);
                             Bundle bundle = new Bundle();
                             bundle.putInt("dia",dia);
                             bundle.putInt("mes",mes);
-                            bundle.putInt("anio",anio);
-                           // intent.putExtras(bundle);
-                            //startActivity(intent);
+                            bundle.putInt("año",año);
+                            intent.putExtras(bundle);
+                            startActivity(intent);
 
                         }else if (i==1){
                             //ver eventos
 
-                           // Intent intent = new Intent(getApplication(),verEventos.class);
+                          //  Intent intent = new Intent(getApplication(),VerEventosActivity.class);
                             Bundle bundle = new Bundle();
                             bundle.putInt("dia",dia);
                             bundle.putInt("mes",mes);
-                            bundle.putInt("anio",anio);
-                            //intent.putExtras(bundle);
-                            //startActivity(intent);
+                            bundle.putInt("año",año);
+                        //    intent.putExtras(bundle);
+                          //  startActivity(intent);
 
 
                         }else{

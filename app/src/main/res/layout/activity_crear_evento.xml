@@ -10,6 +10,87 @@
         android:id="@+id/app_main_toolbar"
         layout="@layout/toolbar_principal" />
 
+    <EditText
+        android:id="@+id/edtNombreEvento"
+        android:layout_margin="10dp"
+        android:layout_below="@id/app_main_toolbar"
+        android:hint="Ingrese nombre del evento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/edtUbicacion"
+        android:hint="Ingrese Ubicación"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtNombreEvento"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/edtDuracion"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Todo el dia"
+        android:textSize="15dp"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@id/edtUbicacion"/>
+    <Switch
+        android:id="@+id/switchDuracion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtUbicacion"
+        android:layout_marginRight="50dp"/>
+
+    <EditText
+        android:id="@+id/edtFecha"
+        android:hint="Ingrese la fecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtDuracion"
+        android:layout_margin="10dp"/>
+
+    <EditText
+        android:id="@+id/edtComienzo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtFecha"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Ingrese hora de comienzo" />
+    <EditText
+        android:id="@+id/edtFinal"
+        android:hint="Ingrese hora final"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtFecha"
+        android:layout_toEndOf="@id/edtComienzo"
+        android:layout_margin="10dp"/>
+    <EditText
+        android:id="@+id/edtDescripcion"
+        android:hint="Ingrese Descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtComienzo"
+        android:layout_margin="10dp"/>
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_below="@id/edtDescripcion"
+        android:text="Guardar"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnCancelar"
+        android:layout_below="@id/edtDescripcion"
+        android:text="Cancelar"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/btnGuardar"
+        android:layout_marginLeft="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
