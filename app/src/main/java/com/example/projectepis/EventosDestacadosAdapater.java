@@ -8,7 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -29,6 +36,7 @@ public class EventosDestacadosAdapater extends ArrayAdapter<Eventos> {
         TextView tvNombre;
         TextView tvFecha;
         TextView tvHora;
+        Button btAnadir;
     }
 
 
@@ -63,6 +71,7 @@ public class EventosDestacadosAdapater extends ArrayAdapter<Eventos> {
             viewHolder.tvNombre = convertView.findViewById(R.id.tvNombre);
             viewHolder.tvFecha = convertView.findViewById(R.id.tvFecha);
             viewHolder.tvHora = convertView.findViewById(R.id.tvHora);
+            viewHolder.btAnadir=convertView.findViewById(R.id.btAnadir);
             convertView.setTag(viewHolder);
         } else {
 
@@ -70,15 +79,31 @@ public class EventosDestacadosAdapater extends ArrayAdapter<Eventos> {
         }
 
         viewHolder.tvNombre.setText(eventos.getNombre());
-        viewHolder.tvFecha.setText(eventos.getFecha());
-        viewHolder.tvHora.setText(eventos.getHoraComienzo());
+        viewHolder.tvFecha.setText(eventos.getFecha()+" ("+eventos .getUbicacion()+")");
+        viewHolder.tvHora.setText(eventos.getHoraComienzo()+" - "+eventos.getHoraFinal());
 
 
-        // Establecer el listener para que cada vez que se cliquee lleve a la nueva Activity
-        convertView.setOnClickListener(new View.OnClickListener() {
+
+        viewHolder.btAnadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                FirebaseAuth mAuth=FirebaseAuth.getInstance();
+                DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference().child("Eventos");;
+                FirebaseUser user= mAuth.getCurrentUser();
+
+                DatabaseReference EventosRef =  UserRef.child(user.getUid());
+
+                EventosRef.child(eventos.getNombre()).child("ubicacion").setValue(eventos.getUbicacion());
+                EventosRef.child(eventos.getNombre()).child("fecha").setValue(eventos.getFecha());
+                EventosRef.child(eventos.getNombre()).child("Todo el dia").setValue(eventos.getTodoeldia());
+                EventosRef.child(eventos.getNombre()).child("horaComienzo").setValue(eventos.getHoraComienzo());
+                EventosRef.child(eventos.getNombre()).child("horaFinal").setValue(eventos.getHoraFinal());
+                EventosRef.child(eventos.getNombre()).child("descripcion").setValue(eventos.getDescripcion());
+
+
+
+                //Toast.makeText(getContext(),eventos.getNombre(),Toast.LENGTH_SHORT).show();
 
 
                 /*Intent intent = new Intent(getContext(), .class);

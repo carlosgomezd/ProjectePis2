@@ -1,7 +1,7 @@
 package com.example.projectepis;
 
 public class Eventos {
-    private String nombre, ubicacion, duracion, fecha, horaComienzo, horaFinal, descripcion;
+    private String nombre, ubicacion, duracion, fecha, horaComienzo, horaFinal, descripcion,todoeldia;
 
     public Eventos(){}
 
@@ -13,6 +13,14 @@ public class Eventos {
         this.horaComienzo = horaComienzo;
         this.horaFinal = horaFinal;
         this.descripcion = descripcion;
+    }
+
+    public String getTodoeldia() {
+        return todoeldia;
+    }
+
+    public void setTodoeldia(String todoeldia) {
+        this.todoeldia = todoeldia;
     }
 
     public String getNombre() {

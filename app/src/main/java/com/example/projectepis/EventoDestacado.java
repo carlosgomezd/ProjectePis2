@@ -20,6 +20,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class EventoDestacado extends AppCompatActivity {
     private Toolbar toolbar;
@@ -64,7 +65,7 @@ public class EventoDestacado extends AppCompatActivity {
         listaEventos.clear();
 
 
-        Query query = UserRef.child("uZFAqxEt9cX9Vr9xyf0BPG7ChYy2");
+        Query query = UserRef.child("Publico");
 
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
@@ -73,6 +74,7 @@ public class EventoDestacado extends AppCompatActivity {
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
                     Eventos ev = ds.getValue(Eventos.class);
                     ev.setNombre(ds.getKey());
+                    ev.setTodoeldia(((HashMap)ds.getValue()).get("Todo el dia").toString());
                     listaEventos.add(ev);
                 }
 

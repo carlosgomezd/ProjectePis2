@@ -12,8 +12,21 @@ import android.service.autofill.CharSequenceTransformation;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CalendarView;
+import android.widget.Toast;
 
+import com.developer.kalert.KAlertDialog;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Calendario extends AppCompatActivity implements CalendarView.OnDateChangeListener {
     private CalendarView calendarView;
@@ -45,9 +58,9 @@ public class Calendario extends AppCompatActivity implements CalendarView.OnDate
         items[1]="Ver Eventos";
         items[2]="Cancelar";
         final int dia,mes,año;
-        dia=i;
+        año=i;
         mes=i1+1;
-        año=i2;
+        dia=i2;
 
 
         builder.setTitle("Seleccione una tarea")
@@ -67,7 +80,6 @@ public class Calendario extends AppCompatActivity implements CalendarView.OnDate
 
                         }else if (i==1){
                             //ver eventos
-
                           //  Intent intent = new Intent(getApplication(),VerEventosActivity.class);
                             Bundle bundle = new Bundle();
                             bundle.putInt("dia",dia);
@@ -75,6 +87,17 @@ public class Calendario extends AppCompatActivity implements CalendarView.OnDate
                             bundle.putInt("año",año);
                         //    intent.putExtras(bundle);
                           //  startActivity(intent);
+
+                            // 13/06/2022  dd/mm/aaaa
+
+                            String formatMes= mes<10 ? "0"+mes : mes+"";
+
+                            String fecha=dia+"/"+formatMes+"/"+año;
+                            mostrarListaEventos(fecha);
+
+
+
+
 
 
                         }else{
@@ -87,6 +110,50 @@ public class Calendario extends AppCompatActivity implements CalendarView.OnDate
         dialog.show();
 
 
+
+    }
+
+    public void mostrarListaEventos(String fecha){
+
+        FirebaseAuth mAuth=FirebaseAuth.getInstance();
+        DatabaseReference UserRef = FirebaseDatabase.getInstance().getReference().child("Eventos");
+        FirebaseUser user= mAuth.getCurrentUser();
+
+
+
+        Query query = UserRef.child(user.getUid());
+
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                ArrayList<String> listaEventos = new ArrayList<>();
+
+                String eventos = "";
+
+                for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                    Eventos ev = ds.getValue(Eventos.class);
+                    //ev.setNombre();
+                    if(ev.getFecha().equals(fecha))
+                    eventos+=ds.getKey()+"\n";
+                }
+
+                //mostrar lista
+                new KAlertDialog(calendarView.getContext())
+                        .setTitleText("Eventos!")
+                        .setContentText(eventos.isEmpty() ? "No hay eventos" : eventos)
+                        .show();
+
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        };
+        query.addListenerForSingleValueEvent(valueEventListener);
 
     }
 
