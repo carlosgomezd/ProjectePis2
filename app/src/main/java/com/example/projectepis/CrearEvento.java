@@ -5,14 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -20,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,6 +37,7 @@ public class CrearEvento extends AppCompatActivity implements View.OnClickListen
     private Switch sDuracion, sPublico;
     private Button cancelar, guardar;
     private String UserId;
+    private int dia, mes, año, hComienzo, mComienzo, hFinal, mFinal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +71,10 @@ public class CrearEvento extends AppCompatActivity implements View.OnClickListen
         guardar=(Button) findViewById(R.id.btnGuardar);
         guardar.setOnClickListener(this);
         cancelar.setOnClickListener(this);
+
+        fecha.setOnClickListener(this);
+        horaComienzo.setOnClickListener(this);
+        horaFinal.setOnClickListener(this);
 
     }
 
@@ -134,11 +144,16 @@ public class CrearEvento extends AppCompatActivity implements View.OnClickListen
                 this.finish();
                 return;
             }if(correcto==true){
-                if(!publico){
-                    EventosRef = RootRef.child("Eventos").child(UserId);
-                }else{
+                if(publico){
                     EventosRef = RootRef.child("Eventos").child("Publico");
+                    EventosRef.child(nombreEvento.getText().toString()).child("ubicacion").setValue(ubicacion.getText().toString());
+                    EventosRef.child(nombreEvento.getText().toString()).child("fecha").setValue(fecha.getText().toString());
+                    EventosRef.child(nombreEvento.getText().toString()).child("Todo el dia").setValue(sDuracion.isChecked());
+                    EventosRef.child(nombreEvento.getText().toString()).child("horaComienzo").setValue(horaComienzo.getText().toString());
+                    EventosRef.child(nombreEvento.getText().toString()).child("horaFinal").setValue(horaFinal.getText().toString());
+                    EventosRef.child(nombreEvento.getText().toString()).child("descripcion").setValue(descripcion.getText().toString());
                 }
+                EventosRef = RootRef.child("Eventos").child(UserId);
                 EventosRef.child(nombreEvento.getText().toString()).child("ubicacion").setValue(ubicacion.getText().toString());
                 EventosRef.child(nombreEvento.getText().toString()).child("fecha").setValue(fecha.getText().toString());
                 EventosRef.child(nombreEvento.getText().toString()).child("Todo el dia").setValue(sDuracion.isChecked());
@@ -150,9 +165,55 @@ public class CrearEvento extends AppCompatActivity implements View.OnClickListen
                 return;
             }
 
-        }else{
+        }else if(view.getId()==cancelar.getId()){
             this.finish();
             return;
+        }
+        if(view.getId()==fecha.getId()){
+            final Calendar calendar = Calendar.getInstance();
+            dia=calendar.get(Calendar.DAY_OF_MONTH);
+            mes=calendar.get(Calendar.MONTH);
+            año=calendar.get(Calendar.YEAR);
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                    if(i1<10){
+                        fecha.setText(i2+"/0"+(i1+1)+"/"+i);
+                    }else{
+                        fecha.setText(i2+"/"+(i1+1)+"/"+i);
+                    }
+
+                }
+            }
+            ,dia,mes,año);
+            datePickerDialog.show();
+        }
+        if (view.getId()==horaComienzo.getId()){
+            final Calendar calendar = Calendar.getInstance();
+            hComienzo=calendar.get(Calendar.HOUR_OF_DAY);
+            mComienzo=calendar.get(Calendar.MINUTE);
+
+            TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                    horaComienzo.setText(i+":"+i1);
+                }
+            },hComienzo,mComienzo,false);
+            timePickerDialog.show();
+
+        }if(view.getId()==horaFinal.getId()){
+            final Calendar calendar = Calendar.getInstance();
+            hFinal=calendar.get(Calendar.HOUR_OF_DAY);
+            mFinal=calendar.get(Calendar.MINUTE);
+
+            TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                    horaFinal.setText(i+":"+i1);
+                }
+            },hFinal,mFinal,false);
+            timePickerDialog.show();
         }
     }
 }

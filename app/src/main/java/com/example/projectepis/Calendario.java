@@ -68,13 +68,13 @@ public class Calendario extends AppCompatActivity implements CalendarView.OnDate
                         }else if (i==1){
                             //ver eventos
 
-                          //  Intent intent = new Intent(getApplication(),VerEventosActivity.class);
-                            Bundle bundle = new Bundle();
+                            Intent intent = new Intent(getApplication(),VerEventosActivity.class);
+                           /* Bundle bundle = new Bundle();
                             bundle.putInt("dia",dia);
                             bundle.putInt("mes",mes);
                             bundle.putInt("año",año);
-                        //    intent.putExtras(bundle);
-                          //  startActivity(intent);
+                            intent.putExtras(bundle);*/
+                            startActivity(intent);
 
 
                         }else{

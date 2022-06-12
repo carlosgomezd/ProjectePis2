@@ -64,7 +64,7 @@ public class EventoDestacado extends AppCompatActivity {
         listaEventos.clear();
 
 
-        Query query = UserRef.child("uZFAqxEt9cX9Vr9xyf0BPG7ChYy2");
+        Query query = UserRef.child("Publico");
 
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
