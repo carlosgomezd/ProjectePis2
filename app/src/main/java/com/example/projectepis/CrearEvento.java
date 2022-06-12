@@ -25,11 +25,11 @@ import java.util.Map;
 
 public class CrearEvento extends AppCompatActivity implements View.OnClickListener {
     private Toolbar toolbar;
-    private DatabaseReference EventosRef;
+    private DatabaseReference EventosRef, RootRef;
     private FirebaseAuth auth;
     private EditText nombreEvento, ubicacion, fecha, horaComienzo, horaFinal, descripcion;
-    private TextView tDuracion;
-    private Switch sDuracion;
+    private TextView tDuracion, tPublico;
+    private Switch sDuracion, sPublico;
     private Button cancelar, guardar;
     private String UserId;
 
@@ -48,7 +48,8 @@ public class CrearEvento extends AppCompatActivity implements View.OnClickListen
 
         auth=FirebaseAuth.getInstance();
         UserId=auth.getCurrentUser().getUid();
-        EventosRef= FirebaseDatabase.getInstance().getReference().child("Eventos").child(UserId);
+        EventosRef = FirebaseDatabase.getInstance().getReference().child("Eventos").child(UserId);
+        RootRef = FirebaseDatabase.getInstance().getReference();
 
         nombreEvento=(EditText) findViewById(R.id.edtNombreEvento);
         ubicacion=(EditText) findViewById(R.id.edtUbicacion);
@@ -58,6 +59,8 @@ public class CrearEvento extends AppCompatActivity implements View.OnClickListen
         descripcion=(EditText) findViewById(R.id.edtDescripcion);
         tDuracion=(TextView) findViewById(R.id.edtDuracion);
         sDuracion=(Switch) findViewById(R.id.switchDuracion);
+        tPublico=(TextView) findViewById(R.id.edtPublico);
+        sPublico=(Switch) findViewById(R.id.switchPublico);
         cancelar=(Button) findViewById(R.id.btnCancelar);
         guardar=(Button) findViewById(R.id.btnGuardar);
         guardar.setOnClickListener(this);
@@ -97,7 +100,11 @@ public class CrearEvento extends AppCompatActivity implements View.OnClickListen
     public void onClick(View view) {
         boolean correcto = true;
         boolean todoElDia = false;
+        boolean publico = false;
         if (view.getId()==guardar.getId()){
+            if(sPublico.isChecked()){
+                publico = true;
+            }
             if(sDuracion.isChecked()) {
                 todoElDia = true;
             }
@@ -127,6 +134,11 @@ public class CrearEvento extends AppCompatActivity implements View.OnClickListen
                 this.finish();
                 return;
             }if(correcto==true){
+                if(!publico){
+                    EventosRef = RootRef.child("Eventos").child(UserId);
+                }else{
+                    EventosRef = RootRef.child("Eventos").child("Publico");
+                }
                 EventosRef.child(nombreEvento.getText().toString()).child("ubicacion").setValue(ubicacion.getText().toString());
                 EventosRef.child(nombreEvento.getText().toString()).child("fecha").setValue(fecha.getText().toString());
                 EventosRef.child(nombreEvento.getText().toString()).child("Todo el dia").setValue(sDuracion.isChecked());

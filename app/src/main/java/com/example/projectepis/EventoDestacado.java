@@ -87,13 +87,13 @@ public class EventoDestacado extends AppCompatActivity {
         query.addListenerForSingleValueEvent(valueEventListener);
 
 
-        /*listaEventos.add(new Eventos("asad","asad","asad","asad",
+       /* listaEventos.add(new Eventos("asad","asad","asad","asad",
                 "asad","asad","asad"));
         listaEventos.add(new Eventos("asad","asad","asad","asad",
                 "asad","asad","asad"));
         listaEventos.add(new Eventos("asad","asad","asad","asad",
-                "asad","asad","asad"));*/
-        //listaEventos.addAll(objects);
+                "asad","asad","asad"));
+        listaEventos.addAll(objects);*/
 
 
     }

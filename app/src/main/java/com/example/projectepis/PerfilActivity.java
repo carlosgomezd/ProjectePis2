@@ -243,7 +243,7 @@ public class PerfilActivity extends AppCompatActivity {
 
                         Glide.with(context )
                                 .load(filePath)
-                                .placeholder(R.drawable.profile)
+                                .placeholder(R.drawable.user)
                                 .into(ivPerfil);
 
                         Toast.makeText(context, getString(R.string.subida_exitosa), Toast.LENGTH_SHORT).show();
@@ -254,8 +254,8 @@ public class PerfilActivity extends AppCompatActivity {
                         pd.dismiss();
                         //Log.e("fire",e.toString());
                         Glide.with(context )
-                                .load(R.drawable.profile)
-                                .placeholder(R.drawable.profile)
+                                .load(R.drawable.user)
+                                .placeholder(R.drawable.user)
                                 .into(ivPerfil);
                         Toast.makeText(context, getString(R.string.subida_fallida) + e, Toast.LENGTH_SHORT).show();
 
@@ -280,7 +280,7 @@ public class PerfilActivity extends AppCompatActivity {
             public void onSuccess(Uri uri) {
                 Glide.with(context )
                         .load(uri.toString())
-                        .placeholder(R.drawable.profile)
+                        .placeholder(R.drawable.user)
                         .into(ivPerfil);
 
             }
@@ -290,8 +290,8 @@ public class PerfilActivity extends AppCompatActivity {
                 // Handle any errors
 
                 Glide.with(context )
-                        .load(R.drawable.profile)
-                        .placeholder(R.drawable.profile)
+                        .load(R.drawable.user)
+                        .placeholder(R.drawable.user)
                         .into(ivPerfil);
             }
         });

@@ -66,12 +66,26 @@
         android:layout_below="@id/edtFecha"
         android:layout_toEndOf="@id/edtComienzo"
         android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/edtPublico"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Publico"
+        android:textSize="15dp"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@id/edtComienzo"/>
+    <Switch
+        android:id="@+id/switchPublico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtComienzo"
+        android:layout_marginRight="50dp"/>
     <EditText
         android:id="@+id/edtDescripcion"
         android:hint="Ingrese Descripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edtComienzo"
+        android:layout_below="@id/edtPublico"
         android:layout_margin="10dp"/>
     <Button
         android:id="@+id/btnGuardar"
