@@ -4,6 +4,7 @@ public class Eventos {
     private String nombre, ubicacion, duracion, fecha, horaComienzo, horaFinal, descripcion;
 
     public Eventos(){}
+
     public Eventos(String nombre, String ubicacion, String duracion, String fecha, String horaComienzo, String horaFinal, String descripcion) {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
